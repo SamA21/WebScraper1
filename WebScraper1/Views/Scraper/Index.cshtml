@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Scraper STL Group Search";
+}
+
+<h2>Scraping STL Group Search (local authority search provider)</h2>
+
+@if (ViewBag.ReturnedPositions != null)
+{
+    if (ViewBag.ReturnedPositions.IndexOf("Error") >= 0)
+    {
+        <p style="color:red">@ViewBag.ReturnedPositions</p>
+    }
+    else
+    {
+        if (ViewBag.ReturnedPositions.IndexOf("No mentions") >= 0)
+        {
+            <p style="color:purple">@ViewBag.ReturnedPositions</p>
+        }
+        else
+        {
+            <h4>Link at Position('s):</h4>
+            <p>@ViewBag.ReturnedPositions</p>
+        }
+    }
+}
+else
+{
+    <p style="color:red">Error getting data from source, please try again later (when a more stable internet).</p>
+}
